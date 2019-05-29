@@ -38,6 +38,21 @@ CA,D3,C5,C7,C9 -> HighCard*/
     }
 
 
+
+    @Test
+    fun `CA,DA,HA,C2,C3 should be ThreeOfAKind `(){
+        val input = "CA,DA,HA,C2,C3"
+        val hands = Hands.create(input)
+        Assert.assertEquals(Type.ThreeOfAKind, hands.getType())
+    }
+
+    @Test
+    fun `CA,DA,HA,SA,C2 should be FourOfAKind`(){
+        val input = "CA,DA,HA,SA,C2"
+        val hands = Hands.create(input)
+        Assert.assertEquals(Type.FourOfAKind, hands.getType())
+    }
+
     @Test
     @Ignore
     fun `CA,C2,C3,C4,C5 should StraightFlush`() {

@@ -22,9 +22,18 @@ class Hands(val cards: List<Card>) {
         } else if (cardGroup.size == 4) {
             return Type.OnePair
         } else if (cardGroup.size == 3) {
-            if (!cardGroup.any { it.value.size == 3 }) {
-                return Type.TwoPair
-            }else throw Exception()
+            return if (cardGroup.any { it.value.size == 3 }) {
+                Type.ThreeOfAKind
+            }else {
+                Type.TwoPair
+            }
+        } else if(cardGroup.size == 2) {
+            return if(cardGroup.any { it.value.size == 4 }){
+                return Type.FourOfAKind
+            } else {
+                throw  Exception()
+            }
+
         } else {
             return Type.StraightFlush
         }
@@ -33,5 +42,6 @@ class Hands(val cards: List<Card>) {
 
 
 enum class Type {
-    Flush, StraightFlush, OnePair, TwoPair
+    Flush, StraightFlush, OnePair, TwoPair, ThreeOfAKind,
+    FourOfAKind
 }
