@@ -10,7 +10,7 @@ class CardTest {
         val input = "H2"
         val card = Card.create(input)
 
-        Assert.assertEquals("Hearts", card.suit)
+        Assert.assertEquals(Suit.Hearts, card.suit)
         Assert.assertEquals(2, card.number)
     }
 
@@ -19,8 +19,16 @@ class CardTest {
         val input = "C10"
         val card = Card.create(input)
 
-        Assert.assertEquals("Clubs", card.suit)
+        Assert.assertEquals(Suit.Clubs, card.suit)
         Assert.assertEquals(10, card.number)
     }
 
+    @Test
+    fun `DQ suit should be Diamonds and number is 12`() {
+        val input = "DQ"
+        val card = Card.create(input)
+
+        Assert.assertEquals(Suit.Clubs, card.suit)
+        Assert.assertEquals(10, card.number)
+    }
 }
