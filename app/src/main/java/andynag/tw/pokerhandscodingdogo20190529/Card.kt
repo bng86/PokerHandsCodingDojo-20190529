@@ -24,17 +24,11 @@ class Card(
         )
 
         fun create(input: String): Card {
-            val suit = input[0]
-            val index = input.substring(1, input.length)
-            val number = table[index] ?: throw Exception()
+            val suit = parseSiut(input[0])
+            val tail = input.substring(1, input.length)
+            val number = parseNumber(tail)
 
-            return when (suit) {
-                'H' -> Card(Suit.Hearts, number)
-                'C' -> Card(Suit.Clubs, number)
-                'D' -> Card(Suit.Diamond, number)
-                'S' -> Card(Suit.Spade, number)
-                else -> throw IllegalArgumentException()
-            }
+            return Card(suit, number)
         }
 
         fun parseSiut(char: Char): Suit {
