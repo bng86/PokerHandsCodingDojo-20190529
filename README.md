@@ -1,4 +1,4 @@
-# 十八啦 coding dojo
+# PokerHands coding dojo
 
 ## 活動內容
 
