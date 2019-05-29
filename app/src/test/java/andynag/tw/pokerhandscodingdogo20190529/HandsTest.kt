@@ -1,6 +1,7 @@
 package andynag.tw.pokerhandscodingdogo20190529
 
 import org.junit.Assert
+import org.junit.Ignore
 import org.junit.Test
 
 class HandsTest {
@@ -23,6 +24,15 @@ CA,D3,C5,C7,C9 -> HighCard*/
     }
 
     @Test
+    fun `CA,DA,H3,C4,H5 should be Flush One Pair`(){
+        val input = "CA,DA,H3,C4,H5"
+        val hands = Hands.create(input)
+        Assert.assertEquals(Type.OnePair, hands.getType())
+    }
+
+
+    @Test
+    @Ignore
     fun `CA,C2,C3,C4,C5 should StraightFlush`() {
         val input = "CA,C2,C3,C4,C5"
         val hands = Hands.create(input)

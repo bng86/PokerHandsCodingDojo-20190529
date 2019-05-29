@@ -13,6 +13,9 @@ class Hands(val cards: List<Card>) {
 
     fun getType(): Type {
         var suit:Suit = cards[0].suit
+        val text=cards.groupBy {it.number
+
+        }
         if(cards.all { it.suit == suit  }){
             return Type.Flush
         } else {
@@ -23,5 +26,5 @@ class Hands(val cards: List<Card>) {
 
 
 enum class Type{
-     Flush, StraightFlush
+     Flush, StraightFlush,OnePair
 }
