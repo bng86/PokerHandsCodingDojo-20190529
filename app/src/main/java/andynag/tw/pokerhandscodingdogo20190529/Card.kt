@@ -36,6 +36,31 @@ class Card(
                 else -> throw IllegalArgumentException()
             }
         }
+
+        fun parseSiut(char: Char): Suit {
+            return when (char) {
+                'H' -> Suit.Hearts
+                'C' -> Suit.Clubs
+                'D' -> Suit.Diamond
+                'S' -> Suit.Spade
+                else -> throw IllegalArgumentException()
+            }
+        }
+
+        fun parseNumber(str: String): Int {
+            return try {
+                str.toInt()
+            }
+            catch (_: NumberFormatException) {
+                when (str) {
+                    "A" -> 1
+                    "J" -> 11
+                    "Q" -> 12
+                    "K" -> 13
+                    else -> throw IllegalArgumentException()
+                }
+            }
+        }
     }
 
 }
