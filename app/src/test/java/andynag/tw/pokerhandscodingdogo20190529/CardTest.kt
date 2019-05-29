@@ -29,6 +29,6 @@ class CardTest {
         val card = Card.create(input)
 
         Assert.assertEquals(Suit.Clubs, card.suit)
-        Assert.assertEquals(10, card.number)
+        Assert.assertEquals(12, card.number)
     }
 }
