@@ -13,11 +13,15 @@ class Hands(val cards: List<Card>) {
 
     fun getType(): Type {
         var suit:Suit = cards[0].suit
-//        cards.all { it is suit }
-        return Type.Flush
+        if(cards.all { it.suit == suit  }){
+            return Type.Flush
+        } else {
+            return Type.StraightFlush
+        }
     }
 }
 
-sealed class Type{
-    object Flush:Type()
+
+enum class Type{
+     Flush, StraightFlush
 }

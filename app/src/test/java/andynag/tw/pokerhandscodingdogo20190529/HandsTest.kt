@@ -16,9 +16,16 @@ CA,DA,H3,C4,H5 -> OnePair
 CA,D3,C5,C7,C9 -> HighCard*/
 
     @Test
-    fun `同花CA,C3,C5,C7,C9`() {
+    fun `CA,C3,C5,C7,C9 should be Flush`() {
         val input = "CA,C3,C5,C7,C9"
         val hands = Hands.create(input)
-        Assert.assertEquals("Flush", hands.getType())
+        Assert.assertEquals(Type.Flush, hands.getType())
+    }
+
+    @Test
+    fun `CA,C2,C3,C4,C5 should StraightFlush`() {
+        val input = "CA,C2,C3,C4,C5"
+        val hands = Hands.create(input)
+        Assert.assertEquals(Type.StraightFlush, hands.getType())
     }
 }

@@ -59,15 +59,15 @@ class Card(
 
 }
 
-sealed class Suit() {
+enum class Suit() {
     /*
      * Spade = 3
      * Heart = 2
      * Diamond = 1
      * Club = 0
      */
-    object Hearts : Suit()
-    object Spade : Suit()
-    object Clubs : Suit()
-    object Diamond : Suit()
+    Hearts,
+    Spade,
+    Clubs,
+    Diamond
 }
