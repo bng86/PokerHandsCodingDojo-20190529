@@ -54,6 +54,20 @@ CA,D3,C5,C7,C9 -> HighCard*/
     }
 
     @Test
+    fun `CA,DA,HA,C2,C2 should be FullHouse`(){
+        val input = "CA,DA,HA,C2,C2"
+        val hands = Hands.create(input)
+        Assert.assertEquals(Type.FullHouse, hands.getType())
+    }
+
+    @Test
+    fun `CA,D2,C3,C4,C5 should Straight`(){
+        val input = "CA,D2,C3,C4,C5"
+        val hands = Hands.create(input)
+        Assert.assertEquals(Type.Straight, hands.getType())
+    }
+
+    @Test
     @Ignore
     fun `CA,C2,C3,C4,C5 should StraightFlush`() {
         val input = "CA,C2,C3,C4,C5"

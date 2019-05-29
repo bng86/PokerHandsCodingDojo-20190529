@@ -1,6 +1,6 @@
 package andynag.tw.pokerhandscodingdogo20190529
 
-class Hands(val cards: List<Card>) {
+class Hands(private val cards: List<Card>) {
 
 
     companion object {
@@ -12,30 +12,39 @@ class Hands(val cards: List<Card>) {
 
 
     fun getType(): Type {
-        var suit: Suit = cards[0].suit
+        val suit: Suit = cards[0].suit
         val cardGroup = cards.groupBy {
             it.number
 
         }
-        if (cards.all { it.suit == suit }) {
-            return Type.Flush
-        } else if (cardGroup.size == 4) {
-            return Type.OnePair
-        } else if (cardGroup.size == 3) {
-            return if (cardGroup.any { it.value.size == 3 }) {
+        return when {
+            cards.all { it.suit == suit } -> Type.Flush
+            cardGroup.size == 4 -> Type.OnePair
+            cardGroup.size == 3 -> if (cardGroup.any { it.value.size == 3 }) {
                 Type.ThreeOfAKind
-            }else {
+            } else {
                 Type.TwoPair
             }
-        } else if(cardGroup.size == 2) {
-            return if(cardGroup.any { it.value.size == 4 }){
-                return Type.FourOfAKind
+            cardGroup.size == 2 -> if (cardGroup.any { it.value.size == 4 }) {
+                Type.FourOfAKind
             } else {
-                throw  Exception()
+                Type.FullHouse
             }
+            isStraight() -> {
+                Type.Straight
+            }
+            else -> Type.StraightFlush
+        }
+    }
 
+    private fun isStraight(): Boolean {
+        //TODO: 10 J Q K A is not implemented
+        val isDifferent = cards.groupBy { it.number }.size == 5
+        if (isDifferent) {
+            val sortedCards = cards.sortedBy { it.number }
+            return Math.abs(sortedCards.first().number - sortedCards.last().number) == 4
         } else {
-            return Type.StraightFlush
+            return false
         }
     }
 }
@@ -43,5 +52,5 @@ class Hands(val cards: List<Card>) {
 
 enum class Type {
     Flush, StraightFlush, OnePair, TwoPair, ThreeOfAKind,
-    FourOfAKind
+    FourOfAKind, FullHouse, Straight
 }
