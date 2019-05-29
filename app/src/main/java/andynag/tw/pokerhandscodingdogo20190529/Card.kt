@@ -26,12 +26,13 @@ class Card(
         fun create(input: String): Card {
             val suit = input[0]
             val index = input.substring(1, input.length)
-            val number = table[index]?:throw Exception()
+            val number = table[index] ?: throw Exception()
 
             return when (suit) {
                 'H' -> Card(Suit.Hearts, number)
                 'C' -> Card(Suit.Clubs, number)
                 'D' -> Card(Suit.Diamond, number)
+                'S' -> Card(Suit.Spade, number)
                 else -> throw IllegalArgumentException()
             }
         }
@@ -47,7 +48,7 @@ sealed class Suit() {
      * Club = 0
      */
     object Hearts : Suit()
-
+    object Spade : Suit()
     object Clubs : Suit()
     object Diamond : Suit()
 }
