@@ -24,10 +24,17 @@ CA,D3,C5,C7,C9 -> HighCard*/
     }
 
     @Test
-    fun `CA,DA,H3,C4,H5 should be Flush One Pair`(){
+    fun `CA,DA,H3,C4,H5 should be One Pair`(){
         val input = "CA,DA,H3,C4,H5"
         val hands = Hands.create(input)
         Assert.assertEquals(Type.OnePair, hands.getType())
+    }
+
+    @Test
+    fun `CA,DA,H3,C2,H2 should be TwoPair`(){
+        val input = "CA,DA,H3,C2,H2"
+        val hands = Hands.create(input)
+        Assert.assertEquals(Type.TwoPair, hands.getType())
     }
 
 
