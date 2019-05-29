@@ -18,7 +18,7 @@ CA,D3,C5,C7,C9 -> HighCard*/
     @Test
     fun `同花CA,C3,C5,C7,C9`() {
         val input = "CA,C3,C5,C7,C9"
-        val hands = Hands(input)
-        Assert.assertEquals("Flush", hands)
+        val hands = Hands.create(input)
+        Assert.assertEquals("Flush", hands.getType())
     }
 }
