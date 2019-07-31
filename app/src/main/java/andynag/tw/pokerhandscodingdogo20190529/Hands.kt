@@ -13,7 +13,19 @@ class Hands(val pokerList: List<Poker>) {
     }
 
     private fun isStraight():Boolean{
-        return false
+        if(pokerList.size>4) {
+        pokerList.sortedBy { poker ->poker.point  }
+            var pri=pokerList.first().point
+        for(i in 1 until pokerList.size){
+            pri++
+            if(pokerList[i].point!=pri){
+                return false
+            }
+        }
+            return true
+        }else {
+            return false
+        }
     }
 
     private fun isFlush(): Boolean {
