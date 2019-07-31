@@ -7,6 +7,7 @@ class Poker(private val input : String) {
             'C' -> Suit.Clubs
             'D' -> Suit.Diamonds
             'H' -> Suit.Hearts
+            'S'->Suit.Spades
             else -> TODO()
         }
     }
@@ -16,7 +17,8 @@ class Poker(private val input : String) {
             'A' -> 1
             'Q' -> 12
             'K' -> 13
-            else -> TODO()
+            'J' ->11
+            else -> input[1].toInt()
         }
     }
 

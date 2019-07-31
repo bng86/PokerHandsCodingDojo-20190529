@@ -27,7 +27,19 @@ class PokeHandTest {
     }
 
     @Test
-    fun `test HJ`() {
-
+    fun `test SJ`() {
+        val poker=Poker("SJ")
+        Assert.assertEquals(Suit.Spades,poker.suit())
+        Assert.assertEquals(11,poker.point())
     }
+    @Test
+    fun testTwoToTenS(){
+        val s="S"
+        for(i in 2..10) {
+            val content=s+i.toString()
+            val poker = Poker(content)
+            Assert.assertEquals(Suit.Spades,poker.suit())
+            Assert.assertEquals(i,poker.point())
+        }
+        }
 }
