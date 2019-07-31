@@ -16,7 +16,7 @@ class PokeHandTest {
     fun `test DQ`() {
         val poker = Poker("DQ")
         Assert.assertEquals(Suit.Diamonds, poker.suit)
-        Assert.assertEquals(12, poker.point )
+        Assert.assertEquals(12, poker.point)
     }
 
     @Test
@@ -28,29 +28,46 @@ class PokeHandTest {
 
     @Test
     fun `test SJ`() {
-        val poker=Poker("SJ")
-        Assert.assertEquals(Suit.Spades,poker.suit)
-        Assert.assertEquals(11,poker.point)
+        val poker = Poker("SJ")
+        Assert.assertEquals(Suit.Spades, poker.suit)
+        Assert.assertEquals(11, poker.point)
     }
 
     @Test
-    fun testTwoToTenS(){
+    fun testTwoToTenS() {
         val s = "S"
         for (i in 2..10) {
-            val content= s + i.toString()
+            val content = s + i.toString()
             val poker = Poker(content)
-            Assert.assertEquals(Suit.Spades,poker.suit)
+            Assert.assertEquals(Suit.Spades, poker.suit)
             Assert.assertEquals(i, poker.point)
         }
     }
 
     @Test
-    fun `CA,C2,C3,C4,C5  StraightFlush`(){
-        val hands = Hands(Poker("CA"), Poker("C2"), Poker("C3"), Poker("C4"), Poker("C5"))
+    fun `CA,C2,C3,C4,C5  StraightFlush`() {
+        val list = ArrayList<Poker>()
+        list.add(Poker("CA"))
+        list.add(Poker("C2"))
+        list.add(Poker("C3"))
+        list.add(Poker("C4"))
+        list.add(Poker("C5"))
+        val hands = Hands(list)
 
-        Assert.assertEquals("StraightFlush", hands.result)
+        Assert.assertEquals("StraightFlush", hands.getResult())
     }
 
+    @Test
+    fun `CA,C2,C3,C4,C5 Is flush`() {
+        val list = ArrayList<Poker>()
+        list.add(Poker("CA"))
+        list.add(Poker("CJ"))
+        list.add(Poker("C3"))
+        list.add(Poker("C4"))
+        list.add(Poker("C5"))
+        val hands = Hands(list)
 
+        Assert.assertEquals("Flush", hands.getResult())
+    }
 
 }
