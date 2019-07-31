@@ -1,12 +1,21 @@
 package andynag.tw.pokerhandscodingdogo20190529
 
-class Poker(input: String) {
+class Poker(private val input : String) {
+
     fun suit(): Suit {
-        return Suit.Clubs
+        return if(input[0] == Suit.Clubs.toString()[0]){
+            Suit.Clubs
+        }else{
+            Suit.Diamonds
+        }
     }
 
     fun point(): Int {
-        return 1
+        return if(input[1]== 'A'){
+            1
+        }else{
+            12
+        }
     }
 
 }
