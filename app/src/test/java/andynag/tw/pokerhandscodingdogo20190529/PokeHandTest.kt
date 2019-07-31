@@ -18,4 +18,16 @@ class PokeHandTest {
         Assert.assertEquals(Suit.Diamonds, poker.suit())
         Assert.assertEquals(12, poker.point() )
     }
+
+    @Test
+    fun `test HK`() {
+        val poker = Poker("HK")
+        Assert.assertEquals(Suit.Hearts, poker.suit())
+        Assert.assertEquals(13, poker.point())
+    }
+
+    @Test
+    fun `test HJ`() {
+
+    }
 }
