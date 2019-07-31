@@ -2,7 +2,10 @@ package andynag.tw.pokerhandscodingdogo20190529
 
 class Poker(private val input : String) {
 
-    fun suit(): Suit {
+    val suit = suit()
+    val point = point()
+
+    private fun suit(): Suit {
         return when(input[0]) {
             'C' -> Suit.Clubs
             'D' -> Suit.Diamonds
@@ -12,7 +15,7 @@ class Poker(private val input : String) {
         }
     }
 
-    fun point(): Int {
+    private fun point(): Int {
         return when (val point =input.substring(1, input.length)) {
             "A" -> 1
             "Q" -> 12
