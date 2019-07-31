@@ -46,8 +46,11 @@ class PokeHandTest {
 
     @Test
     fun `CA,C2,C3,C4,C5  StraightFlush`(){
-//        val hands = Hands(Poker("CA"), Poker("C2"), Poker("C3"), Poker("C4"), Poker("C5"))
+        val hands = Hands(Poker("CA"), Poker("C2"), Poker("C3"), Poker("C4"), Poker("C5"))
 
-//        Assert.assertEquals("StraightFlush", hands)
+        Assert.assertEquals("StraightFlush", hands.result)
     }
+
+
+
 }
