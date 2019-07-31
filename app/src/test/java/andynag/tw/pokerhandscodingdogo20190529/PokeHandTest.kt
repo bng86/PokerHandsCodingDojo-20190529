@@ -34,12 +34,12 @@ class PokeHandTest {
     }
     @Test
     fun testTwoToTenS(){
-        val s="S"
-        for(i in 2..10) {
-            val content=s+i.toString()
+        val s = "S"
+        for (i in 2..10) {
+            val content= s + i.toString()
             val poker = Poker(content)
             Assert.assertEquals(Suit.Spades,poker.suit())
-            Assert.assertEquals(i,poker.point())
+            Assert.assertEquals(i, poker.point())
         }
-        }
+    }
 }

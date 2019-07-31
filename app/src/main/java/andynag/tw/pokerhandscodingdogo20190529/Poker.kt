@@ -13,12 +13,12 @@ class Poker(private val input : String) {
     }
 
     fun point(): Int {
-        return when (input[1]) {
-            'A' -> 1
-            'Q' -> 12
-            'K' -> 13
-            'J' ->11
-            else -> input[1].toInt()
+        return when (val point =input.substring(1, input.length)) {
+            "A" -> 1
+            "Q" -> 12
+            "K" -> 13
+            "J" ->11
+            else -> point.toInt()
         }
     }
 
