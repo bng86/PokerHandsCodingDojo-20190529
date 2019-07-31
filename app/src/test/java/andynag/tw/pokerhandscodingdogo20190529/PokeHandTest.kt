@@ -128,10 +128,23 @@ class PokeHandTest {
         list.add(Poker("DA"))
         list.add(Poker("HA"))
         list.add(Poker("SA"))
-        list.add(Poker("C2
+        list.add(Poker("C2"))
         val hands = Hands(list)
 
         Assert.assertEquals("FourOfAKind", hands.result())
+    }
+
+    @Test
+    fun `CA,DA,HA,D2,C2 Is FullHouse`() {
+        val list = ArrayList<Poker>()
+        list.add(Poker("CA"))
+        list.add(Poker("DA"))
+        list.add(Poker("HA"))
+        list.add(Poker("D2"))
+        list.add(Poker("C2"))
+        val hands = Hands(list)
+
+        Assert.assertEquals("FullHouse", hands.result())
     }
 
 }

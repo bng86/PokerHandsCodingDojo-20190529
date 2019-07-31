@@ -7,6 +7,8 @@ class Hands(val pokerList: List<Poker>) {
             "StraightFlush"
         } else  if(isFlush()) {
             "Flush"
+        } else  if (isFourOfAKind()) {
+            "FourOfAKind"
         } else {
             "Straight"
         }
@@ -25,6 +27,23 @@ class Hands(val pokerList: List<Poker>) {
 
         return dict.any { it.value == 4 }
     }
+
+    private fun isFullHouse():Boolean {
+        var dict = mutableMapOf<Int, Int>(
+        )
+        for (poker in pokerList) {
+            if (dict[poker.point] == null) {
+                dict[poker.point] = 1
+            } else {
+                dict[poker.point] = dict[poker.point]!! + 1
+            }
+        }
+
+       return true
+
+    }
+
+
 
     private fun isStraight():Boolean{
         if(pokerList.size>4) {
