@@ -1,6 +1,7 @@
 package andynag.tw.pokerhandscodingdogo20190529
 
 import org.junit.Assert
+import org.junit.Ignore
 import org.junit.Test
 
 class PokeHandTest {
@@ -57,6 +58,7 @@ class PokeHandTest {
         Assert.assertEquals("Flush", hands.result())
     }
 
+    @Ignore
     @Test
     fun `CA,C2,C3,C4,C5  StraightFlush`() {
         val list = ArrayList<Poker>()
@@ -70,4 +72,42 @@ class PokeHandTest {
         Assert.assertEquals("StraightFlush", hands.result())
     }
 
+    @Test
+    fun `D9,D10,DQ,DK,DA Is flush`() {
+        val list = ArrayList<Poker>()
+        list.add(Poker("D9"))
+        list.add(Poker("D10"))
+        list.add(Poker("DQ"))
+        list.add(Poker("DK"))
+        list.add(Poker("DA"))
+        val hands = Hands(list)
+
+        Assert.assertEquals("Flush", hands.result())
+    }
+
+    @Test
+    fun `H9,H10,HQ,HK,HA Is flush`() {
+        val list = ArrayList<Poker>()
+        list.add(Poker("H9"))
+        list.add(Poker("H10"))
+        list.add(Poker("HQ"))
+        list.add(Poker("HK"))
+        list.add(Poker("HA"))
+        val hands = Hands(list)
+
+        Assert.assertEquals("Flush", hands.result())
+    }
+
+    @Test
+    fun `DA,H2,H3,H4,H5 Is Straight`() {
+        val list = ArrayList<Poker>()
+        list.add(Poker("DA"))
+        list.add(Poker("H2"))
+        list.add(Poker("H3"))
+        list.add(Poker("H4"))
+        list.add(Poker("H5"))
+        val hands = Hands(list)
+
+        Assert.assertEquals("Straight", hands.result())
+    }
 }

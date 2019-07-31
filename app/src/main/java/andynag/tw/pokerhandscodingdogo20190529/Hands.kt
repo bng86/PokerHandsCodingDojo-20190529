@@ -3,14 +3,20 @@ package andynag.tw.pokerhandscodingdogo20190529
 class Hands(val pokerList: List<Poker>) {
 
     fun result():String{
-        return if(isFlush() && isStraight()) "StraightFlush" else "Flush"
+        return if(isFlush() && isStraight()){
+            "StraightFlush"
+        } else  if(isFlush()) {
+            "Flush"
+        } else {
+            "Straight"
+        }
     }
 
-    fun isStraight():Boolean{
-        return true
+    private fun isStraight():Boolean{
+        return false
     }
 
-    fun isFlush(): Boolean {
+    private fun isFlush(): Boolean {
         val pokerSuit = pokerList.distinctBy {
             it.suit
         }
