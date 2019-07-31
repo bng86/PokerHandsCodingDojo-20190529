@@ -1,7 +1,6 @@
 package andynag.tw.pokerhandscodingdogo20190529
 
 import org.junit.Assert
-import org.junit.Ignore
 import org.junit.Test
 
 class PokeHandTest {
@@ -45,20 +44,6 @@ class PokeHandTest {
         }
     }
 
-    @Ignore
-    @Test
-    fun `CA,C2,C3,C4,C5  StraightFlush`() {
-        val list = ArrayList<Poker>()
-        list.add(Poker("CA"))
-        list.add(Poker("C2"))
-        list.add(Poker("C3"))
-        list.add(Poker("C4"))
-        list.add(Poker("C5"))
-        val hands = Hands(list)
-
-        Assert.assertEquals("StraightFlush", hands.isFlush())
-    }
-
     @Test
     fun `CA,C2,C3,C4,C5 Is flush`() {
         val list = ArrayList<Poker>()
@@ -69,7 +54,20 @@ class PokeHandTest {
         list.add(Poker("C5"))
         val hands = Hands(list)
 
-        Assert.assertEquals("Flush", hands.isFlush())
+        Assert.assertEquals("Flush", hands.result())
+    }
+
+    @Test
+    fun `CA,C2,C3,C4,C5  StraightFlush`() {
+        val list = ArrayList<Poker>()
+        list.add(Poker("CA"))
+        list.add(Poker("C2"))
+        list.add(Poker("C3"))
+        list.add(Poker("C4"))
+        list.add(Poker("C5"))
+        val hands = Hands(list)
+
+        Assert.assertEquals("StraightFlush", hands.result())
     }
 
 }
