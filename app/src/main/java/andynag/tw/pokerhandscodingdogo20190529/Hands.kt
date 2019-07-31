@@ -12,6 +12,20 @@ class Hands(val pokerList: List<Poker>) {
         }
     }
 
+    private fun isFourOfAKind():Boolean {
+        var dict = mutableMapOf<Int, Int>(
+        )
+        for (poker in pokerList) {
+            if (dict[poker.point] == null) {
+                dict[poker.point] = 1
+            } else {
+                dict[poker.point] = dict[poker.point]!! + 1
+            }
+        }
+
+        return dict.any { it.value == 4 }
+    }
+
     private fun isStraight():Boolean{
         if(pokerList.size>4) {
         pokerList.sortedBy { poker ->poker.point  }

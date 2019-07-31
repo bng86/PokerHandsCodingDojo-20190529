@@ -111,13 +111,27 @@ class PokeHandTest {
     @Test
     fun `D10,DJ,DQ,DK,DA Is Straight`() {
         val list = ArrayList<Poker>()
+        list.add(Poker("D10"))
+        list.add(Poker("HJ"))
+        list.add(Poker("DQ"))
+        list.add(Poker("DK"))
         list.add(Poker("DA"))
-        list.add(Poker("H2"))
-        list.add(Poker("H3"))
-        list.add(Poker("H4"))
-        list.add(Poker("H5"))
         val hands = Hands(list)
 
         Assert.assertEquals("Straight", hands.result())
     }
+
+    @Test
+    fun `CA,DA,HA,SA,C2 Is FourOfAKind`() {
+        val list = ArrayList<Poker>()
+        list.add(Poker("CA"))
+        list.add(Poker("DA"))
+        list.add(Poker("HA"))
+        list.add(Poker("SA"))
+        list.add(Poker("C2
+        val hands = Hands(list)
+
+        Assert.assertEquals("FourOfAKind", hands.result())
+    }
+
 }
