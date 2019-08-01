@@ -24,51 +24,56 @@ CA,D3,C5,C7,C9 -> HighCard*/
     }
 
     @Test
-    fun `CA,DA,H3,C4,H5 should be One Pair`(){
+    fun `CA,DA,H3,C4,H5 should be One Pair`() {
         val input = "CA,DA,H3,C4,H5"
         val hands = Hands.create(input)
         Assert.assertEquals(Type.OnePair, hands.getType())
     }
 
     @Test
-    fun `CA,DA,H3,C2,H2 should be TwoPair`(){
+    fun `CA,DA,H3,C2,H2 should be TwoPair`() {
         val input = "CA,DA,H3,C2,H2"
         val hands = Hands.create(input)
         Assert.assertEquals(Type.TwoPair, hands.getType())
     }
 
 
-
     @Test
-    fun `CA,DA,HA,C2,C3 should be ThreeOfAKind `(){
+    fun `CA,DA,HA,C2,C3 should be ThreeOfAKind `() {
         val input = "CA,DA,HA,C2,C3"
         val hands = Hands.create(input)
         Assert.assertEquals(Type.ThreeOfAKind, hands.getType())
     }
 
     @Test
-    fun `CA,DA,HA,SA,C2 should be FourOfAKind`(){
+    fun `CA,DA,HA,SA,C2 should be FourOfAKind`() {
         val input = "CA,DA,HA,SA,C2"
         val hands = Hands.create(input)
         Assert.assertEquals(Type.FourOfAKind, hands.getType())
     }
 
     @Test
-    fun `CA,DA,HA,C2,C2 should be FullHouse`(){
+    fun `CA,DA,HA,C2,C2 should be FullHouse`() {
         val input = "CA,DA,HA,C2,C2"
         val hands = Hands.create(input)
         Assert.assertEquals(Type.FullHouse, hands.getType())
     }
 
     @Test
-    fun `CA,D2,C3,C4,C5 should Straight`(){
+    fun `CA,D2,C3,C4,C5 should Straight`() {
         val input = "CA,D2,C3,C4,C5"
         val hands = Hands.create(input)
         Assert.assertEquals(Type.Straight, hands.getType())
     }
 
     @Test
-    @Ignore
+    fun `C10,CJ,CQ,CK,CA should Straight`() {
+        val input = "C10,CJ,HQ,CK,CA"
+        val hands = Hands.create(input)
+        Assert.assertEquals(Type.Straight, hands.getType())
+    }
+
+    @Test
     fun `CA,C2,C3,C4,C5 should StraightFlush`() {
         val input = "CA,C2,C3,C4,C5"
         val hands = Hands.create(input)

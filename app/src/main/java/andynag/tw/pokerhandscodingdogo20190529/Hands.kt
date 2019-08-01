@@ -18,7 +18,7 @@ class Hands(private val cards: List<Card>) {
 
         }
         return when {
-            cards.all { it.suit == suit } -> Type.Flush
+            cards.all { it.suit == suit } -> if (isStraight()) Type.StraightFlush else Type.Flush
             cardGroup.size == 4 -> Type.OnePair
             cardGroup.size == 3 -> if (cardGroup.any { it.value.size == 3 }) {
                 Type.ThreeOfAKind
@@ -43,6 +43,7 @@ class Hands(private val cards: List<Card>) {
         if (isDifferent) {
             val sortedCards = cards.sortedBy { it.number }
             return Math.abs(sortedCards.first().number - sortedCards.last().number) == 4
+                    || Math.abs(sortedCards.first().number - sortedCards.last().number) == 12
         } else {
             return false
         }
